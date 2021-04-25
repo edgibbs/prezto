@@ -4,6 +4,12 @@ Prezto is the configuration framework for [Zsh][1]; it enriches the command line
 interface environment with sane defaults, aliases, functions, auto completion,
 and prompt themes.
 
+## My Notes
+
+So this is stored locally and updates from `~.zpresto/. Initially followed along with this article:
+
+[Jazz Up your ZSH Terminal with Pretzo](http://https://medium.com/dev-genius/enhance-your-terminal-with-zsh-and-prezto-ab9abf9bc424)
+
 ## Installation
 
 ### Manual
