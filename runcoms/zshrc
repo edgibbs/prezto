@@ -31,3 +31,59 @@ zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Aliases
+alias mux="tmuxinator"
+alias clear="timeout 2 cmatrix; reset"
+
+# Functions
+function new_tab() {
+  TAB_NAME=$1
+  COMMAND=$2
+  osascript \
+    -e "tell application \"Terminal\"" \
+    -e "tell application \"System Events\" to keystroke \"t\" using {command down}" \
+    -e "do script \"printf '\\\e]1;$TAB_NAME\\\a'; $COMMAND\" in front window" \
+    -e "end tell" > /dev/null
+}
+
+# Paths
+
+# my scripts
+export PATH=$HOME/scripts
+
+# brew
+export PATH="/usr/local/bin:$PATH"
+
+# /usr/local/sbin
+export PATH=$PATH:/usr/local/sbin
+
+# system paths
+export PATH=$PATH:/usr/sbin:/sbin:/usr/bin:/bin
+
+# rbenv path
+if [ -d "$HOME/.rbenv" ]; then
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/shims:$PATH"
+fi
+
+# nodenv path
+if [ -d "$HOME/.nodenv" ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
+
+# Settings
+
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+export EDITOR=vim
+
+export HISTSIZE=50000
+export HISTFILESIZE=50000
+
+# Shell history Erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+export TMUXINATOR_CONFIG="$HOME/.config/tmuxinator"
