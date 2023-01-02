@@ -78,7 +78,7 @@ fi
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
-export EDITOR=vim
+export EDITOR=nvim
 
 export HISTSIZE=50000
 export HISTFILESIZE=50000
@@ -87,3 +87,8 @@ export HISTFILESIZE=50000
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export TMUXINATOR_CONFIG="$HOME/.config/tmuxinator"
+
+# enable chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby ruby-3.1.0
